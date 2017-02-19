@@ -28,6 +28,12 @@
 			<groupId>com.github.insubstantial</groupId>
 			<artifactId>trident</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>
