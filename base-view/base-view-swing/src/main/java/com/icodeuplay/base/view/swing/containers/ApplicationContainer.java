@@ -2,13 +2,14 @@ package com.icodeuplay.base.view.swing.containers;
 
 import java.awt.BorderLayout;
 import java.awt.Cursor;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -36,11 +37,10 @@ public class ApplicationContainer extends JFrame {
 		int height = Integer.parseInt(MessageUtils.getString("app.screen.height"));
 
 		ImageUtils.setAppIcons(this);
-		this.setPreferredSize(new Dimension(width, height));
+		this.setBounds(ScreenUtils.getBounds(width, height, true));
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		this.getContentPane().setLayout(new BorderLayout());
-		this.setBounds(ScreenUtils.getBounds(width, height, true));
 
 		this.menu = new JMenuBar();
 		this.menu.setBounds(MENU_POSITION_X, MENU_POSITION_Y, MENU_WIDTH, MENU_HEIGHT);
@@ -74,6 +74,7 @@ public class ApplicationContainer extends JFrame {
 			}
 		});
 
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 
@@ -115,6 +116,13 @@ public class ApplicationContainer extends JFrame {
 	}
 
 	public void addMenu(JMenu menu) {
+		menu.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+		JMenuItem item = null;
+		for (int i = 0; i < menu.getItemCount(); i++) {
+			item = menu.getItem(i);
+			item.setFont(new Font("Verdana", Font.PLAIN, 11));
+		}
 		this.menu.add(menu);
 	}
 

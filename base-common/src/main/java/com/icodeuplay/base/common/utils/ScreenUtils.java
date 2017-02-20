@@ -1,6 +1,7 @@
 package com.icodeuplay.base.common.utils;
 
 import java.awt.AWTException;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -33,11 +34,8 @@ public class ScreenUtils {
 		try {
 			robot = new Robot();
 			capturedImage = robot.createScreenCapture(rectangle);
-			ImageIO.write(
-					capturedImage,
-					extension,
-					new File(new StringBuilder(path).append(File.separator).append(filename).append(".")
-							.append(extension).toString()));
+			ImageIO.write(capturedImage, extension, new File(new StringBuilder(path).append(File.separator)
+					.append(filename).append(".").append(extension).toString()));
 		} catch (AWTException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -51,14 +49,23 @@ public class ScreenUtils {
 		return Toolkit.getDefaultToolkit().getScreenSize();
 	}
 
-	public static Rectangle getBounds(int width, int height, boolean center) {
+	public static Rectangle getBounds(int width, int height, boolean center, Component parent) {
 		if (width == 0 && height == 0) {
 			return new Rectangle(getScreenSize());
 		} else if (center) {
-			Dimension screen = ScreenUtils.getScreenSize();
-			return new Rectangle(screen.width / 2 - width / 2, screen.height / 2 - height / 2, width, height);
+			if (parent != null) {
+				Dimension screen = parent.getSize();
+				return new Rectangle(screen.width / 2 - width / 2, screen.height / 2 - height / 2, width, height);
+			} else {
+				Dimension screen = ScreenUtils.getScreenSize();
+				return new Rectangle(screen.width / 2 - width / 2, screen.height / 2 - height / 2, width, height);
+			}
 		} else {
 			return new Rectangle(0, 0, width, height);
 		}
+	}
+
+	public static Rectangle getBounds(int width, int height, boolean center) {
+		return getBounds(width, height, center, null);
 	}
 }
