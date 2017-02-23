@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>base-view-swing</artifactId>
+	<artifactId>base-view-javafx</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
@@ -19,24 +19,10 @@
 			<version>${project.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.github.insubstantial</groupId>
-			<artifactId>substance</artifactId>
-		</dependency>
 
 		<dependency>
-			<groupId>com.github.insubstantial</groupId>
-			<artifactId>trident</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.reflections</groupId>
-			<artifactId>reflections</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sourceforge.cssparser</groupId>
-			<artifactId>cssparser</artifactId>
+        	<groupId>com.oracle</groupId>
+        	<artifactId>javafx</artifactId>
 		</dependency>
 
 	</dependencies>

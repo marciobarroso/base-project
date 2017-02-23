@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>base-view-swing</module>
+		<module>base-view-javafx</module>
 	</modules>
 
 </project>

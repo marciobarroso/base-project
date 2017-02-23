@@ -1,6 +1,7 @@
 package com.icodeuplay.base.common.utils;
 
 import java.awt.Image;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -23,6 +24,10 @@ public class ImageUtils implements Serializable {
 	
 	public static ImageIcon getImageByKey(String key) {
 		return getImage(MessageUtils.getString(key));
+	}
+	
+	public static InputStream getInputStream(String resource) {
+		return ClassLoader.getSystemResourceAsStream(resource);
 	}
 	
 	public static void setAppIcons(JFrame frame) {
