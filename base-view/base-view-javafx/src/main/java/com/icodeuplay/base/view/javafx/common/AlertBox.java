@@ -1,6 +1,7 @@
 package com.icodeuplay.base.view.javafx.common;
 
 import com.icodeuplay.base.common.utils.MessageUtils;
+import com.icodeuplay.base.view.javafx.utils.ScreenUtils;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -50,6 +51,8 @@ public class AlertBox {
 		Scene scene = new Scene(root);
 		window.setScene(scene);
 		window.showAndWait();
+
+		ScreenUtils.centralize(window);
 	}
 
 }

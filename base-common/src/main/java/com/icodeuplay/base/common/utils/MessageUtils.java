@@ -24,6 +24,17 @@ public class MessageUtils {
 		MESSAGES = new PropertyReader("messages");
 	}
 
+	public static int getInt(String key) {
+		try {
+			if (MESSAGES.containsKey(key)) {
+				return Integer.parseInt(MESSAGES.getString(key));
+			}
+		} catch (Exception e) {
+		}
+
+		return Integer.MIN_VALUE;
+	}
+
 	public static String getString(String key) {
 		if (MESSAGES.containsKey(key)) {
 			return MESSAGES.getString(key);

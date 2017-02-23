@@ -1,6 +1,7 @@
 package com.icodeuplay.base.view.javafx.common;
 
 import com.icodeuplay.base.common.utils.MessageUtils;
+import com.icodeuplay.base.view.javafx.utils.ScreenUtils;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -56,12 +57,14 @@ public class ConfirmBox {
 		bottom.getChildren().addAll(yes, no);
 		root.setBottom(bottom);
 
-		HBox.setMargin(yes, new Insets(0,10,10,10));
-		HBox.setMargin(no, new Insets(0,10,10,10));
-		
+		HBox.setMargin(yes, new Insets(0, 10, 10, 10));
+		HBox.setMargin(no, new Insets(0, 10, 10, 10));
+
 		Scene scene = new Scene(root);
 		window.setScene(scene);
 		window.showAndWait();
+
+		ScreenUtils.centralize(window);
 
 		return answer;
 	}
